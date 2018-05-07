@@ -1,20 +1,49 @@
 #!/usr/bin/env node
+
 'use strict';
 const meow = require('meow');
 const xRayCli = require('.');
 
 const cli = meow(`
     Usage
-      $ xray-cli [input]
+      $ xray-cli [URL] --flags
 
     Options
-      --foo  Lorem ipsum [Default: false]
+      --key Pass your own Webpagetest API key [Default: APP]
+      --json Save results as JSON [Default: true]
+      --html Save results as HTML [Default: false]
+      --all Save results as both HTML & JSON [Default: false]
 
     Examples
-      $ xray-cli
-      unicorns & rainbows
-      $ x-ray-cli ponies
-      ponies & rainbows
-`);
+      $ xray-cli https://example.com --json # generates a JSON output
+      $ xray-cli https://example.com --html # generates a HTML report
+      $ xray-cli https://example.com --all # will spit out both formats
 
-console.log(xRayCli(cli.input[0]));
+    Note
+    > Generate your own API key here: https://www.webpagetest.org/getkey.php
+    > Limit with the APP Default API key is 200 request.
+    > This CLI is used by a lot of people, so you may see an API error, in that case,
+      request your own API key and use that.
+`, {
+    autoHelp: true
+});
+
+if (cli.input.length === 0) {
+    console.log(cli.help);
+    return;
+}
+
+const flags = cli.flags;
+const key = flags.key;
+delete flags.key;
+
+if (Object.keys(flags).length > 1) {
+    console.log('You can have only one output format.');
+    console.log();
+    console.log('Please pass either `--json` or `--pdf`');
+    return;
+}
+
+flags.key = key;
+
+xRayCli(cli.input, flags);
