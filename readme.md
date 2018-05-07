@@ -1,68 +1,44 @@
-# x-ray-cli [![Build Status](https://travis-ci.org/arvindr21/x-ray-cli.svg?branch=master)](https://travis-ci.org/arvindr21/x-ray-cli) [![codecov](https://codecov.io/gh/arvindr21/x-ray-cli/badge.svg?branch=master)](https://codecov.io/gh/arvindr21/x-ray-cli?branch=master)
+# xray-cli [![Build Status](https://travis-ci.org/arvindr21/xray-cli.svg?branch=master)](https://travis-ci.org/arvindr21/xray-cli) [![codecov](https://codecov.io/gh/arvindr21/xray-cli/badge.svg?branch=master)](https://codecov.io/gh/arvindr21/xray-cli?branch=master)
 
 > CLI for web page test
-
 
 ## Install
 
 ```
-$ npm install x-ray-cli
+$ npm install @arvindr21/xray-cli --global
 ```
 
 
 ## Usage
 
-```js
-const xRayCli = require('x-ray-cli');
-
-xRayCli('unicorns');
-//=> 'unicorns & rainbows'
 ```
+$ xray-cli --help
 
-
-## API
-
-### xRayCli(input, [options])
-
-#### input
-
-Type: `string`
-
-Lorem ipsum.
-
-#### options
-
-##### foo
-
-Type: `boolean`<br>
-Default: `false`
-
-Lorem ipsum.
-
-
-## CLI
-
-```
-$ npm install --global x-ray-cli
-```
-
-```
-$ x-ray-cli --help
+  CLI for web page test
 
   Usage
-    x-ray-cli [input]
+    $ xray-cli [URL] --flags
 
   Options
-    --foo  Lorem ipsum [Default: false]
+    --key Pass your own Webpagetest API key [Default: APP]
+    --json Save results as JSON [Default: true]
+    --html Save results as HTML [Default: false]
+    --all Save results as both HTML & JSON [Default: false]
 
   Examples
-    $ x-ray-cli
-    unicorns & rainbows
-    $ x-ray-cli ponies
-    ponies & rainbows
+    $ xray-cli https://example.com --json # generates a JSON output
+    $ xray-cli https://example.com --html # generates a HTML report
+    $ xray-cli https://example.com --all # will spit out both formats
+
+  Note
+  > Generate your own API key here: https://www.webpagetest.org/getkey.php
+  > Limit with the APP Default API key is 200 request.
+  > This CLI is used by a lot of people, so you may see an API error, in that case,
+    request your own API key and use that.
+
 ```
 
 
 ## License
 
-MIT © [Arvind Ravulavaru](https://github.com/arvindr21/x-ray-cli)
+MIT © [Arvind Ravulavaru](https://github.com/arvindr21/xray-cli)

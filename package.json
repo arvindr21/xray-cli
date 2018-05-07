@@ -1,5 +1,5 @@
 {
-    "name": "xray-cli",
+    "name": "@arvindr21/xray-cli",
     "version": "0.1.0",
     "description": "CLI for web page test",
     "license": "MIT",
