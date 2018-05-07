@@ -22,6 +22,7 @@
         "src/helper.js",
         "src/runner.js",
         "src/tablify.js"
+        "src/csvfy.js"
     ],
     "keywords": [
         "cli-app",
