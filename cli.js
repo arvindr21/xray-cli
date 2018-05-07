@@ -12,14 +12,17 @@ const cli = meow(`
       --file Filename to save the results [Default: results]
       --api API URL [Default: https://www.webpagetest.org/]
       --key Pass your own Webpagetest API key [Default: APP]
-      --json Save results as JSON [Default: true]
+
+    Output options
+      --json Save results as JSON [Default: false]
       --html Save results as HTML [Default: false]
+      --csv Save results as CSV [Default: false]
       --all Save results as both HTML & JSON [Default: false]
 
     Examples
-      $ xray-cli https://example.com --json # generates a JSON output
-      $ xray-cli https://example.com --html # generates a HTML report
-      $ xray-cli https://example.com --all # will spit out both formats
+      $ xray-cli https://example.com --json
+      $ xray-cli https://example.com --file=example-homepage --html # generates a HTML report with the name example-homepageeaxmple
+      $ xray-cli https://example.com --all # will spit out all supported formats of data
 
     Note
     > Generate your own API key here: https://www.webpagetest.org/getkey.php

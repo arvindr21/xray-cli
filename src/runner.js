@@ -3,6 +3,7 @@ const WebPageTest = require('webpagetest');
 const fs = require('fs');
 const API_KEY = 'A.002803875acd5c290b7ceea5123b74ac';
 const Tabilify = require('./tablify');
+const Csvfy = require('./csvfy');
 const Helper = require('./helper');
 
 module.exports = (inputs, opts) => {
@@ -51,6 +52,12 @@ module.exports = (inputs, opts) => {
                 </body>
                 </html>`;
             fs.writeFileSync(process.cwd() + '/' + file + '.html', html);
+        }
+
+        if (opts.csv || opts.all) {
+            Csvfy(result, (e, csv) => {
+                fs.writeFileSync(process.cwd() + '/' + file + '.csv', csv);
+            });
         }
 
         console.log('Load time:', Helper.formatSeconds(result.data.average.firstView.loadTime))
