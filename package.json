@@ -1,6 +1,6 @@
 {
     "name": "@arvindr21/xray-cli",
-    "version": "0.2.0",
+    "version": "0.3.0",
     "description": "CLI for web page test",
     "license": "MIT",
     "repository": "arvindr21/xray-cli",
@@ -19,7 +19,7 @@
     "files": [
         "index.js",
         "cli.js",
-        "src/helpers.js",
+        "src/helper.js",
         "src/runner.js",
         "src/tablify.js"
     ],
