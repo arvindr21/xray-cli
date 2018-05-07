@@ -18,7 +18,10 @@
     },
     "files": [
         "index.js",
-        "cli.js"
+        "cli.js",
+        "src/helpers.js",
+        "src/runner.js",
+        "src/tablify.js"
     ],
     "keywords": [
         "cli-app",
