@@ -9,6 +9,8 @@ const cli = meow(`
       $ xray-cli [URL] --flags
 
     Options
+      --file Filename to save the results [Default: results]
+      --api API URL [Default: https://www.webpagetest.org/]
       --key Pass your own Webpagetest API key [Default: APP]
       --json Save results as JSON [Default: true]
       --html Save results as HTML [Default: false]
@@ -36,7 +38,12 @@ if (!cli.input) {
     } else {
         const flags = cli.flags;
         const key = flags.key;
+        const file = flags.file;
+        const api = flags.api;
+
         delete flags.key;
+        delete flags.file;
+        delete flags.api;
 
         if (Object.keys(flags).length > 1) {
             console.log('You can have only one output format.');
@@ -44,6 +51,9 @@ if (!cli.input) {
             console.log('Please pass either `--json` or `--html` or `--all`');
         } else {
             flags.key = key;
+            flags.file = file;
+            flags.api = api;
+
             xRayCli(cli.input, flags);
         }
     }
