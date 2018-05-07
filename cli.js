@@ -28,22 +28,23 @@ const cli = meow(`
     autoHelp: true
 });
 
-if (cli.input.length === 0) {
-    console.log(cli.help);
-    return;
+if (!cli.input) {
+    console.error('URL is required.');
+} else {
+    if (cli.input && cli.input.length === 0) {
+        console.log(cli.help);
+    } else {
+        const flags = cli.flags;
+        const key = flags.key;
+        delete flags.key;
+
+        if (Object.keys(flags).length > 1) {
+            console.log('You can have only one output format.');
+            console.log();
+            console.log('Please pass either `--json` or `--html` or `--all`');
+        } else {
+            flags.key = key;
+            xRayCli(cli.input, flags);
+        }
+    }
 }
-
-const flags = cli.flags;
-const key = flags.key;
-delete flags.key;
-
-if (Object.keys(flags).length > 1) {
-    console.log('You can have only one output format.');
-    console.log();
-    console.log('Please pass either `--json` or `--pdf`');
-    return;
-}
-
-flags.key = key;
-
-xRayCli(cli.input, flags);

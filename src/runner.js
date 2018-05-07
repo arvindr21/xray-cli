@@ -1,11 +1,13 @@
 'use strict';
-const WebPageTest = require('WebPageTest');
+const WebPageTest = require('webpagetest');
 const fs = require('fs');
 const API_KEY = 'A.002803875acd5c290b7ceea5123b74ac';
 const Tabilify = require('./tablify');
 const Helper = require('./helper');
 
 module.exports = (inputs, opts) => {
+    if(!inputs) return;
+
     console.log('');
     console.log('Processing ', inputs.length, 'url(s). Please wait..');
     console.log('');
