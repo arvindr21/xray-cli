@@ -45,6 +45,8 @@ module.exports = (inputs, opts) => {
                     </style>
                 </head>
                 <body>
+                    <h1 style="text-align:center">${file}</h1>
+                    <h3 style="text-align:center">URL: ${inputs.join(';')}</h3>
                     ${Tabilify(result)}
                 </body>
                 </html>`;

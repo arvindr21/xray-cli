@@ -20,6 +20,8 @@ $ xray-cli --help
     $ xray-cli [URL] --flags
 
   Options
+    --file Filename to save the results [Default: results]
+    --api API URL [Default: https://www.webpagetest.org/]
     --key Pass your own Webpagetest API key [Default: APP]
     --json Save results as JSON [Default: true]
     --html Save results as HTML [Default: false]
