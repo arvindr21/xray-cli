@@ -1,0 +1,45 @@
+{
+    "name": "xray-cli",
+    "version": "0.1.0",
+    "description": "CLI for web page test",
+    "license": "MIT",
+    "repository": "arvindr21/xray-cli",
+    "author": {
+        "name": "Arvind Ravulavaru",
+        "email": "arvind.ravulavaru@gmail.com",
+        "url": "github.com/arvindr21/xray-cli"
+    },
+    "bin": "cli.js",
+    "engines": {
+        "node": ">=4"
+    },
+    "scripts": {
+        "test": "xo && nyc ava"
+    },
+    "files": [
+        "index.js",
+        "cli.js"
+    ],
+    "keywords": [
+        "cli-app",
+        "cli",
+        ""
+    ],
+    "dependencies": {
+        "meow": "^3.7.0",
+        "tableify": "^1.1.0",
+        "webpagetest": "^0.3.8"
+    },
+    "devDependencies": {
+        "ava": "^0.20.0",
+        "codecov": "^2.2.0",
+        "nyc": "^11.0.0",
+        "xo": "^0.18.2"
+    },
+    "nyc": {
+        "reporter": [
+            "lcov",
+            "text"
+        ]
+    }
+}
