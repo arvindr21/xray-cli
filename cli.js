@@ -43,10 +43,12 @@ if (!cli.input) {
         const key = flags.key;
         const file = flags.file;
         const api = flags.api;
+        const csv = flags.csv;
 
         delete flags.key;
         delete flags.file;
         delete flags.api;
+        delete flags.csv;
 
         if (Object.keys(flags).length > 1) {
             console.log('You can have only one output format.');
@@ -56,6 +58,7 @@ if (!cli.input) {
             flags.key = key;
             flags.file = file;
             flags.api = api;
+            flags.csv = csv;
 
             xRayCli(cli.input, flags);
         }
